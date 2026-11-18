@@ -7,8 +7,8 @@ Official research repository for the MLDM Master Program (Semester 1 - Research 
 ## Authors
 - **Jayden Tan**
 - **Yuhsaku Nakai**
-- **Huong Dang Cao**
-- **Pham Tuan Hiep**
+- **Phuong Dang Cao**
+- **Tuan Hiep Pham**
 
 ---
 
