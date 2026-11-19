@@ -843,7 +843,6 @@ def run_ablation_and_figures(config_path: str = "configs/config.yaml"):
 
     df_ablation = pd.DataFrame(ablation_results)
     df_ablation.to_csv("outputs/tables/table3_ablation.csv", index=False)
-    df_ablation.to_csv("outputs/tables/table2_ablation.csv", index=False)
     print("Saved outputs/tables/table3_ablation.csv")
 
     t_inf0 = time.perf_counter()
