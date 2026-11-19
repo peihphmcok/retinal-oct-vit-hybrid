@@ -137,7 +137,6 @@ retinal-oct-vit-hybrid/
 │   └── pipeline/
 │       ├── step1_extract_features.py   # GPU feature extraction (CLAHE & Raw)
 │       ├── step2_train_evaluate.py     # PCA sweep, 5-Fold CV & benchmark training
-│       └── step3_ablation_and_figures.py # Full M0-M5 ablation & 6 IEEE figures/tables
 ├── outputs/
 │   ├── tables/                         # Generated IEEE-formatted CSV tables (Table I - VIII)
 │   └── figures/                        # Generated 300 DPI publication figures (Figure 1 - 6)
@@ -191,13 +190,6 @@ Performs PCA trade-off analysis ($k \in \{64, 150, 256, 768\}$) and runs 5-Fold 
 python -m src.pipeline.step2_train_evaluate
 ```
 *Outputs: `outputs/tables/table1_dataset_distribution.csv`, `outputs/tables/table2_pca_tradeoff.csv`, and benchmark summary.*
-
-#### **Step 3: Ablation Study & Publication Figures** *(Runs on CPU, ~2-3 min)*
-Executes full M0–M5 ablation, clinical misclassification analysis, TreeSHAP global attribution, and exports all 6 IEEE-compliant figures and tables:
-```bash
-python -m src.pipeline.step3_ablation_and_figures
-```
-*Outputs: All 8 CSV tables in `outputs/tables/` and 6 figures (300 DPI PNG) in `outputs/figures/`.*
 
 ---
 

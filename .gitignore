@@ -35,9 +35,10 @@ ENV/
 env.bak/
 venv.bak/
 
-# Jupyter Notebooks & PDF documents
+# Jupyter Notebooks & PDF documents & Local ablation scripts
 *.ipynb
 *.pdf
+src/pipeline/step3_ablation_and_figures.py
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
