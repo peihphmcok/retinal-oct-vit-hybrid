@@ -1,9 +1,5 @@
 # Hybrid Vision Transformer and Gradient Boosting for Retinal OCT Classification
 
-Official research repository for the Master in Machine Learning and Data Mining (MLDM) — Semester 1 Research Methodology, Université Jean Monnet (UJM).
-
----
-
 ## Authors
 - **Jayden Tan**
 - **Yuhsaku Nakai**
@@ -19,39 +15,6 @@ Optical Coherence Tomography (OCT) is the non-invasive clinical imaging gold sta
 - **Traditional Machine Learning (e.g., HOG/LBP + SVM)**: Highly compute-efficient, but lacks the representational power required to resolve subtle morphological biomarkers (<80–90% accuracy).
 
 To bridge this gap, this project develops a **lightweight, clinically interpretable hybrid framework** that couples the representational strength of self-supervised Vision Transformers with the efficiency, tabular interpretability, and robust regularization of Gradient Boosted Decision Trees (XGBoost).
-
----
-
-## Methodology & Architecture
-
-The framework operates via a modular, leak-free pipeline:
-
-```text
-Raw Retinal OCT Scan (84,484 Images)
-   │
-   ▼
-[Step 1] Contrast-Limited Adaptive Histogram Equalization (CLAHE)
-   │     Enhances local layer contrast and reduces speckle noise
-   ▼
-[Step 2] Frozen Vision Transformer (ViT-Base/16)
-   │     Single forward pass extraction -> 768-dimensional latent vector per scan
-   ▼
-[Step 3] Leak-Free 5-Fold Stratified Cross-Validation Partitioning
-   │     Strict partition isolation to prevent feature or distribution leakage
-   ▼
-[Step 4] Orthogonal PCA Dimensionality Compression (k = 150)
-   │     Captures 88.2% of latent variance while reducing dimensionality by 80.5%
-   ▼
-[Step 5] Latent-Space SMOTE Class Balancing
-   │     Synthesizes minority class representations strictly within training folds
-   ▼
-[Step 6] Regularized Gradient Tree Boosting (XGBoost)
-   │     Multi-class classification with validation early-stopping
-   ▼
-[Step 7] Dual Explainability & Attribution
-         Global: TreeSHAP feature importance mapped to retinal biomarkers
-         Local:  14x14 ViT Attention Rollout overlays on morphological lesions
-```
 
 ---
 
