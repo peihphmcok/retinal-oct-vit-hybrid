@@ -36,6 +36,10 @@ feature_extraction:
     train_labels: "outputs/features/y_train_raw.npy"
     test_features: "outputs/features/X_test_raw.npy"
     test_labels: "outputs/features/y_test_raw.npy"
+    train_features_noclahe: "outputs/features/X_train_raw_noclahe.npy"
+    train_labels_noclahe: "outputs/features/y_train_raw_noclahe.npy"
+    test_features_noclahe: "outputs/features/X_test_raw_noclahe.npy"
+    test_labels_noclahe: "outputs/features/y_test_raw_noclahe.npy"
 
 training:
   random_seed: 42

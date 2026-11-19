@@ -35,7 +35,9 @@ ENV/
 env.bak/
 venv.bak/
 
-# Jupyter Notebook checkpoints
+# Jupyter Notebooks & PDF documents
+*.ipynb
+*.pdf
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
