@@ -14,7 +14,7 @@ Official research repository for the Master in Machine Learning and Data Mining 
 
 ## Abstract & Motivation
 
-Optical Coherence Tomography (OCT) is the non-invasive clinical imaging gold standard for diagnosing sight-threatening macular pathologies, including Choroidal Neovascularization (CNV / Wet AMD), Diabetic Macular Edema (DME), and Drusen (Dry AMD). Existing automated diagnostic paradigms suffer from a dichotomy:
+Optical Coherence Tomography (OCT) is the non-invasive clinical imaging gold standard for diagnosing sight-threatening macular pathologies, including Choroidal Neovascularization (CNV / Wet AMD), Diabetic Macular Edema (DME), and Drusen (Dry AMD). Existing automated diagnostic paradigms suffer from a critical dichotomy:
 - **Full End-to-End Deep Learning (CNNs & Vision Transformers)**: Yields high diagnostic accuracy (>96–98%) but requires substantial GPU hardware, long multi-epoch training regimes, and functions largely as a clinical black box with high risk of overfitting on imbalanced cohorts.
 - **Traditional Machine Learning (e.g., HOG/LBP + SVM)**: Highly compute-efficient, but lacks the representational power required to resolve subtle morphological biomarkers (<80–90% accuracy).
 
@@ -74,23 +74,24 @@ Evaluated on the standardized **Mendeley OCT2017 Benchmark** (Kermany et al., 20
 ## Key Experimental Results
 
 ### 1. Diagnostic Performance (M5 Proposed Model)
-Evaluated across 5-fold cross-validation and the untouched 1,000-image test benchmark:
+Evaluated across 5-fold stratified cross-validation and the untouched 1,000-image test benchmark:
 
-| Metric | 5-Fold CV (Mean ± SD) | Benchmark Test Performance | 95% Confidence Interval |
+| Metric | 5-Fold CV (Mean ± SD) | Benchmark Test Performance | 95% Confidence Interval (Test) |
 | :--- | :---: | :---: | :---: |
-| **Accuracy** | 88.53% ± 0.31% | **97.00%** | 95.90% – 98.00% |
-| **Macro F1-Score** | - | **97.00%** | - |
-| **Macro Sensitivity (Recall)** | - | **97.00%** | - |
-| **Macro Specificity** | - | **99.00%** | - |
-| **Macro OVR ROC-AUC** | - | **99.88%** | 99.79% – 99.98% |
+| **Accuracy** | 97.24% ± 0.33% *(Val: 88.53% ± 0.31%)* | **97.00%** | 95.90% – 98.00% |
+| **Macro F1-Score** | 97.24% ± 0.33% | **97.00%** | 95.89% – 98.01% |
+| **Macro Sensitivity (Recall)** | 97.24% ± 0.33% | **97.00%** | 95.86% – 98.02% |
+| **Macro Specificity** | 99.08% ± 0.11% | **99.00%** | 98.63% – 99.34% |
+| **Macro OVR ROC-AUC** | 99.90% ± 0.04% | **99.88%** | 99.79% – 99.95% |
 
 #### Per-Class Diagnostic Metrics
-| Class | Precision (%) | Recall / Sensitivity (%) | Specificity (%) | F1-Score (%) | ROC-AUC |
+| Class | Precision (%) | Recall / Sensitivity (%) | Specificity (%) | F1-Score (%) | ROC-AUC (95% CI) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **CNV** | 94.64 | 98.80 | 98.13 | **96.67** | 0.9991 |
-| **DME** | 98.75 | 94.80 | 99.60 | **96.73** | 0.9975 |
-| **Drusen** | 97.57 | 96.40 | 99.20 | **96.98** | 0.9992 |
-| **Normal** | 97.22 | 98.00 | 99.07 | **97.61** | 0.9993 |
+| **CNV** | 94.64 | 98.80 | 98.13 | **96.67** | 0.9991 (0.9979 – 0.9999) |
+| **DME** | 98.75 | 94.80 | 99.60 | **96.73** | 0.9975 (0.9950 – 0.9995) |
+| **Drusen** | 97.57 | 96.40 | 99.20 | **96.98** | 0.9992 (0.9984 – 0.9997) |
+| **Normal** | 97.22 | 98.00 | 99.07 | **97.61** | 0.9993 (0.9984 – 0.9998) |
+| **Macro Average** | **97.04** | **97.00** | **99.00** | **97.00** | **0.9988 (0.9979 – 0.9995)** |
 
 ### 2. Ablation Study (M0 to M5)
 Validating each architectural component on the test benchmark:
@@ -155,7 +156,7 @@ Python 3.10+ is recommended.
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/retinal-oct-vit-hybrid.git
+git clone https://github.com/peihphmcok/retinal-oct-vit-hybrid.git
 cd retinal-oct-vit-hybrid
 
 # Create and activate virtual environment
